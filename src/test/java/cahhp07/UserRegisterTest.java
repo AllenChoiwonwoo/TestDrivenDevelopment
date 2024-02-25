@@ -50,7 +50,6 @@ public class UserRegisterTest {
     @Test
     void whenRegisterThenSendMail(){
         userRegister.register("id","pw","email@email.com");
-
         assertTrue(spyEmailNotifier.isCalled());
         assertEquals("email@email.com", spyEmailNotifier.getEmail());
     }
