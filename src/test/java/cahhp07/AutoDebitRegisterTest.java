@@ -8,6 +8,7 @@ import static cahhp07.CardValidity.VALID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AutoDebitRegisterTest {
+//    private StubCardValidator stubCardValidator = new StubCardValidator();
     private AutoDebitRegister register;
 
     @BeforeEach
@@ -28,6 +29,12 @@ public class AutoDebitRegisterTest {
     void theftCard(){
         // 업체에서 받은 도난 테스트용 카드번호 사용
         AutoDebitReq req = new AutoDebitReq("user1", "1234567890123456");
+
+    }
+
+    @Test
+    void invalidCardNumber(){
+        // 상황 : 유효하지 않는 카드 번호
 
     }
 }
