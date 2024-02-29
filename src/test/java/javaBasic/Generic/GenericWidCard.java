@@ -1,4 +1,4 @@
-package javaBasic;
+package javaBasic.Generic;
 
 public class GenericWidCard {
 
