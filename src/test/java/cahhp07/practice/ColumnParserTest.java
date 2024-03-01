@@ -53,11 +53,11 @@ public class ColumnParserTest {
 
     @Test
     public void extractRequiredColumn(){
-
         String[] columns = defaultColumns.split(",");
         ColumnParser columnParser = new DefaultColumnParser();
         ColumnsIndexInfo columnsInfo = columnParser.getColumnIndex(columns); // null
-        assertEquals(columnsInfo.getDateIndex(), 1);
-
+        assertEquals(columnsInfo.getDateIndex(), 0);
     }
+
+
 }

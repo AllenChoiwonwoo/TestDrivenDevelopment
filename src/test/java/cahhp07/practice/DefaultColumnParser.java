@@ -4,7 +4,7 @@ public class DefaultColumnParser implements ColumnParser {
     @Override
     public ColumnsIndexInfo getColumnIndex(String[] columns) {
         ColumnsIndexInfo result = new ColumnsIndexInfo();
-        result.setDateIndex(1);
+        result.setDateIndex(0);
         return result;
     }
 }
