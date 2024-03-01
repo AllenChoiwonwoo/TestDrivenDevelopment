@@ -3,7 +3,8 @@ package cahhp07.practice;
 public class DefaultColumnParser implements ColumnParser {
     @Override
     public ColumnsIndexInfo getColumnIndex(String[] columns) {
-
-        return null;
+        ColumnsIndexInfo result = new ColumnsIndexInfo();
+        result.setDateIndex(1);
+        return result;
     }
 }
