@@ -23,8 +23,13 @@ public class DefaultColumnParser implements ColumnParser {
                     break;
             }
         }
-        result.setUnitNameIndex(3);
-        result.setUnitIdIndex(6);
+        if (result.getRequestIndex() == 5){
+            result.setUnitNameIndex(2);
+            result.setUnitIdIndex(4);
+        } else if (result.getRequestIndex() == 7) {
+            result.setUnitNameIndex(3);
+            result.setUnitIdIndex(6);
+        }
         return result;
     }
 }
