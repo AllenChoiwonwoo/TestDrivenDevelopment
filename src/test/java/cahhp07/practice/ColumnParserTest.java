@@ -59,6 +59,11 @@ public class ColumnParserTest {
         assertEquals(0, columnsInfo.getDateIndex());
         assertEquals(2, columnsInfo.getUnitNameIndex());
         assertEquals(4, columnsInfo.getUnitIdIndex());
+        assertEquals(5, columnsInfo.getRequestIndex());
+        assertEquals(6, columnsInfo.getImpressionIndex());
+        assertEquals(7, columnsInfo.getClickIndex());
+        assertEquals(8, columnsInfo.getRevenueIndex());
+        assertEquals(9, columnsInfo.getViewablityIndex());
     }
 
 
