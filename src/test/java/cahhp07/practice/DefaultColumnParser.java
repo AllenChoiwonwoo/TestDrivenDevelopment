@@ -1,8 +1,13 @@
 package cahhp07.practice;
 
+import java.util.Objects;
+
 public class DefaultColumnParser implements ColumnParser {
     @Override
-    public ColumnsIndexInfo getColumnIndex(String columnString) {
+    public ColumnsIndexInfo getColumnIndex(String columnString) throws NullPointerException {
+        if (columnString.isEmpty()){
+            throw new NullPointerException("컬럼 문자열이 비어 있습니다.");
+        }
         String[] columns = columnString.split(",");
 
         ColumnsIndexInfo result = new ColumnsIndexInfo();

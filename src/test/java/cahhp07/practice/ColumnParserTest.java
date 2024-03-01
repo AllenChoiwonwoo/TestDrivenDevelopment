@@ -22,24 +22,34 @@ public class ColumnParserTest {
 
     @Test
     public void extractRequiredColumn(){
+        try {
         ColumnsIndexInfo columnsInfo = columnParser.getColumnIndex(defaultColumns);
-        assertEquals(0, columnsInfo.getDateIndex());
-        assertEquals(2, columnsInfo.getUnitNameIndex());
-        assertEquals(4, columnsInfo.getUnitIdIndex());
-        assertEquals(5, columnsInfo.getRequestIndex());
-        assertEquals(6, columnsInfo.getImpressionIndex());
-        assertEquals(7, columnsInfo.getClickIndex());
-        assertEquals(8, columnsInfo.getRevenueIndex());
-        assertEquals(9, columnsInfo.getViewablityIndex());
+            assertEquals(0, columnsInfo.getDateIndex());
+            assertEquals(2, columnsInfo.getUnitNameIndex());
+            assertEquals(4, columnsInfo.getUnitIdIndex());
+            assertEquals(5, columnsInfo.getRequestIndex());
+            assertEquals(6, columnsInfo.getImpressionIndex());
+            assertEquals(7, columnsInfo.getClickIndex());
+            assertEquals(8, columnsInfo.getRevenueIndex());
+            assertEquals(9, columnsInfo.getViewablityIndex());
 
-        ColumnsIndexInfo columnsIndexInfo = columnParser.getColumnIndex(exceptionColumnString);
-        assertEquals(0, columnsIndexInfo.getDateIndex());
-        assertEquals(3, columnsIndexInfo.getUnitNameIndex());
-        assertEquals(6, columnsIndexInfo.getUnitIdIndex());
-        assertEquals(7, columnsIndexInfo.getRequestIndex());
-        assertEquals(8, columnsIndexInfo.getImpressionIndex());
-        assertEquals(9, columnsIndexInfo.getClickIndex());
-        assertEquals(10, columnsIndexInfo.getRevenueIndex());
-        assertEquals(11, columnsIndexInfo.getViewablityIndex());
+            ColumnsIndexInfo columnsIndexInfo = columnParser.getColumnIndex(exceptionColumnString);
+            assertEquals(0, columnsIndexInfo.getDateIndex());
+            assertEquals(3, columnsIndexInfo.getUnitNameIndex());
+            assertEquals(6, columnsIndexInfo.getUnitIdIndex());
+            assertEquals(7, columnsIndexInfo.getRequestIndex());
+            assertEquals(8, columnsIndexInfo.getImpressionIndex());
+            assertEquals(9, columnsIndexInfo.getClickIndex());
+            assertEquals(10, columnsIndexInfo.getRevenueIndex());
+            assertEquals(11, columnsIndexInfo.getViewablityIndex());
+        } catch (NullPointerException e) {
+            throw new RuntimeException("CSV의 컬럼 파싱중 에러 : " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void columEmptyTest(){
+        assertThrows(NullPointerException.class,
+                () -> columnParser.getColumnIndex(null));
     }
 }
