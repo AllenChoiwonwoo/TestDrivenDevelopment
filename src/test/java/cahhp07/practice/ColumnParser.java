@@ -1,4 +1,5 @@
 package cahhp07.practice;
 
-public class ColumnParser {
+public interface ColumnParser{
+    ColumnsIndexInfo getColumnIndex(String[] columns);
 }
