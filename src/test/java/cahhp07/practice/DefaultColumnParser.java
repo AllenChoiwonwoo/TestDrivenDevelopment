@@ -5,7 +5,6 @@ public class DefaultColumnParser implements ColumnParser {
     public ColumnsIndexInfo getColumnIndex(String columnString) {
         String[] columns = columnString.split(",");
 
-//     Dimension.DATE,Ad unit 1,Ad unit 2,Ad unit ID 1,Ad unit ID 2,Column.TOTAL_AD_REQUESTS,Column.TOTAL_LINE_ITEM_LEVEL_IMPRESSIONS,Column.TOTAL_LINE_ITEM_LEVEL_CLICKS,Column.TOTAL_LINE_ITEM_LEVEL_CPM_AND_CPC_REVENUE,Column.TOTAL_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS_RATE";
         ColumnsIndexInfo result = new ColumnsIndexInfo();
         for (int i = 0; i < columns.length ; i++) {
             switch (columns[i]) {
@@ -23,13 +22,8 @@ public class DefaultColumnParser implements ColumnParser {
                     break;
             }
         }
-        if (result.getRequestIndex() == 5){
-            result.setUnitNameIndex(2);
-            result.setUnitIdIndex(4);
-        } else if (result.getRequestIndex() == 7) {
-            result.setUnitNameIndex(3);
-            result.setUnitIdIndex(6);
-        }
+        result.setUnitIdIndex((result.getRequestIndex()-1));
+        result.setUnitNameIndex(result.getUnitIdIndex()/2);
         return result;
     }
 }
