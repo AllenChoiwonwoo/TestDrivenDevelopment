@@ -52,4 +52,19 @@ public class ColumnParserTest {
         assertThrows(NullPointerException.class,
                 () -> columnParser.getColumnIndex(null));
     }
+
+    @Test
+    public void allColumnIndexChecked() {
+        ColumnsIndexInfo columnsIndexInfo1 = columnParser.getColumnIndex(defaultColumns);
+        assertEquals(true, columnsIndexInfo1.isAllColumnChecked());
+
+        ColumnsIndexInfo columnsIndexInfo2 = columnParser.getColumnIndex(exceptionColumnString);
+        assertEquals(true, columnsIndexInfo2.isAllColumnChecked());
+
+        String valueForError = "Dimension,Ad unit 1,Ad unit 2,Ad unit 3,Ad unit ID 1,Ad unit ID 2,Ad unit ID 3,Column.TOTAL_AD_REQUESTS,Column.TOTAL_LINE_ITEM_LEVEL_IMPRESSIONS,Column.TOTAL_LINE_ITEM_LEVEL_CLICKS,Column.TOTAL_LINE_ITEM_LEVEL_CPM_AND_CPC_REVENUE,Column.TOTAL_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS_RATE";
+        ColumnsIndexInfo columnsIndexInfo3 = columnParser.getColumnIndex(valueForError);
+        assertEquals(false, columnsIndexInfo3.isAllColumnChecked());
+
+
+    }
 }
