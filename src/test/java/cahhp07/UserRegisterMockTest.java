@@ -35,6 +35,7 @@ public class UserRegisterMockTest {
     void checkPassword() {
         userRegister.register("id","pw","email");
         // register 안에서 checkPasswordWeak 가 정상 동작한 것인지 체크 할 수 있다.
+        // mockPasswordChecker 에 아무 셋팅도 하지 않았는데 왜 동작하지?
         BDDMockito.then(mockPasswordChecker)
                 .should()
                 .checkPasswordWeak(BDDMockito.anyString());

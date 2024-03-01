@@ -1,6 +1,7 @@
 package cahhp07;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static cahhp07.CardValidity.THEFT;
@@ -8,7 +9,7 @@ import static cahhp07.CardValidity.VALID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AutoDebitRegisterTest {
-//    private StubCardValidator stubCardValidator = new StubCardValidator();
+    private StubCardNumberValidator stubValidator = new StubCardNumberValidator();
     private AutoDebitRegister register;
 
     @BeforeEach
@@ -33,8 +34,14 @@ public class AutoDebitRegisterTest {
     }
 
     @Test
+    @DisplayName("상황 : 유효하지 않는 카드 번호")
     void invalidCardNumber(){
         // 상황 : 유효하지 않는 카드 번호
+        stubValidator.setInvalidNo("11223344");
 
+        AutoDebitReq req = new AutoDebitReq("user1", "11223344");
+        RegisterResult result = register.register(req);
+
+        assertEquals(VALID, result.getValidity());
     }
 }

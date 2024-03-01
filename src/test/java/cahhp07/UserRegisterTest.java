@@ -53,4 +53,13 @@ public class UserRegisterTest {
         assertTrue(spyEmailNotifier.isCalled());
         assertEquals("email@email.com", spyEmailNotifier.getEmail());
     }
+
+    @Test
+    void 같은_ID_없으면_가입() {
+        userRegister.register("id","pw","email");
+
+        User savedUser = fakeRepository.findById("id");
+        assertEquals("id", savedUser.getId());
+        assertEquals("email",savedUser.getEmail());
+    }
 }
