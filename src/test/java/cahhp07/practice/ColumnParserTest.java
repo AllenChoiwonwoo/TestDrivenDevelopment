@@ -56,7 +56,9 @@ public class ColumnParserTest {
         String[] columns = defaultColumns.split(",");
         ColumnParser columnParser = new DefaultColumnParser();
         ColumnsIndexInfo columnsInfo = columnParser.getColumnIndex(columns); // null
-        assertEquals(columnsInfo.getDateIndex(), 0);
+        assertEquals(0, columnsInfo.getDateIndex());
+        assertEquals(2, columnsInfo.getUnitNameIndex());
+        assertEquals(4, columnsInfo.getUnitIdIndex());
     }
 
 
