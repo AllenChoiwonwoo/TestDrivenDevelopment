@@ -1,9 +1,6 @@
 package javaBasic.weak5;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class BookCategorize {
@@ -27,6 +24,7 @@ public class BookCategorize {
                 new Book(16L, "정하준의 경제학 레시피", "장하준", "경제", 16200),
                 new Book(17L, "레버리지", "롭 무어", "경제", 16200)
         );
+
 
         // 가격이 16200원 이하인 책 제목 조회
         List<Book> listFiltered = bookList.stream().filter(i -> i.getPrice() <= 16200).collect(Collectors.toList());
